@@ -1,0 +1,177 @@
+$date
+	Fri Aug 13 17:15:15 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module adder_subtractor_8_tb $end
+$var wire 8 ! w_result [7:0] $end
+$var wire 1 " w_overflow $end
+$var wire 1 # w_cout $end
+$var reg 1 $ r_cin $end
+$var reg 1 % r_sel $end
+$var reg 8 & r_x [7:0] $end
+$var reg 8 ' r_y [7:0] $end
+$scope module test1 $end
+$var wire 1 $ cin $end
+$var wire 1 % sel $end
+$var wire 8 ( x [7:0] $end
+$var wire 8 ) y [7:0] $end
+$var reg 1 # cout $end
+$var reg 1 " overflow $end
+$var reg 8 * result [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx *
+bx )
+bx (
+bx '
+bx &
+x%
+x$
+x#
+x"
+bx !
+$end
+#5
+0#
+b0 !
+b0 *
+0$
+b0 '
+b0 )
+b0 &
+b0 (
+z"
+0%
+#10
+b1 !
+b1 *
+1$
+#15
+1#
+b11111111 !
+b11111111 *
+b11111111 '
+b11111111 )
+b11111111 &
+b11111111 (
+#20
+b0 !
+b0 *
+0$
+b1 &
+b1 (
+#25
+1$
+b0 '
+b0 )
+b11111111 &
+b11111111 (
+#30
+0#
+b10010110 !
+b10010110 *
+0$
+b110010 '
+b110010 )
+b1100100 &
+b1100100 (
+#35
+b10010111 !
+b10010111 *
+1$
+#40
+1#
+b101100 !
+b101100 *
+0$
+b1100100 '
+b1100100 )
+b11001000 &
+b11001000 (
+#45
+b101101 !
+b101101 *
+1$
+#60
+0"
+b0 !
+b0 *
+z#
+0$
+b0 '
+b0 )
+b0 &
+b0 (
+1%
+#65
+b1 !
+b1 *
+1$
+b1 &
+b1 (
+#70
+1"
+b11111111 !
+b11111111 *
+0$
+b1 '
+b1 )
+b0 &
+b0 (
+#75
+0"
+b11001000 !
+b11001000 *
+b0 '
+b0 )
+b11001000 &
+b11001000 (
+#80
+b1100011 !
+b1100011 *
+b1 '
+b1 )
+b1100100 &
+b1100100 (
+#85
+b0 !
+b0 *
+b11111111 '
+b11111111 )
+b11111111 &
+b11111111 (
+#90
+b110010 !
+b110010 *
+1$
+b110010 '
+b110010 )
+b1100100 &
+b1100100 (
+#95
+1"
+b11111111 !
+b11111111 *
+0$
+b1 '
+b1 )
+b0 &
+b0 (
+#100
+b10011100 !
+b10011100 *
+1$
+b11001000 '
+b11001000 )
+b1100100 &
+b1100100 (
+#105
+0$
