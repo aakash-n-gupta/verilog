@@ -1,12 +1,8 @@
 module counter_16bit (
     input clk,
     input rst_async,
-    output reg [15:0] count
-);
-    // wire [15:0] count_last;
-    // assign counter = 0;
-
-    // reg [15:0] count;
+    output reg [15:0] count = 0
+);   // reg [15:0] count;
 
     always @(posedge clk) 
         begin
@@ -18,9 +14,6 @@ module counter_16bit (
             else
                 count <= 1'b0;
         end
-
-    // assign counter[15:0] = count[15:0];
-
 
 endmodule
 
