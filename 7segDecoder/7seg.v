@@ -12,7 +12,7 @@ module seven_seg_controller (
     output an[3:0]
 );
     reg [16:0] counter;
-    cathode_decoder decoder_inst1(hex_in[3:0], seg[6:0]);
+    cathode_decoder decoder_inst1(hex_in[3:0], rst, seg[6:0]);
     
     // always @(posedge clk_100hz) 
     // begin

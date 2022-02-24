@@ -13,7 +13,7 @@ reg   r_clk = 0 ;
 reg   r_rst = 0 ;
 
 // counter_n Outputs
-wire  [WIDTH-1:0]  w_counter_val = 0;   
+wire  [WIDTH-1:0]  w_counter_val;   
 
 
 initial

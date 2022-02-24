@@ -14,7 +14,7 @@ module top (
     wire clk_100hz;
     reg [3:0] counter;
     
-    clk_divider#(.DIVIDER_VALUE(499999)) clk_100hz(clk, clk_100hz);
+    clk_divider#(.DIVIDER_VALUE(499999)) clk_100hz_inst(clk, clk_100hz);
 
     always @(posedge clk_100hz ) 
     begin
