@@ -1,4 +1,12 @@
-`include "adderGenerator.v"
+module adderGenerator #(parameter WIDTH = 16) (
+    input [WIDTH -1 : 0] in_a, 
+    input [WIDTH -1 : 0] in_b, 
+    input in_carry,
+    output [WIDTH - 1 : 0] sum,
+    output out_carry 
+    );
+    assign {out_carry, sum} = in_a + in_b;
+endmodule
 
 module adder2Stage(
     input clock,
@@ -7,7 +15,6 @@ module adder2Stage(
     input [31:0] in_2, 
     output [31:0] out_sum,
     output out_carry
-
 );
 
 // parameter WIDTH = 32;
@@ -24,8 +31,6 @@ reg pipeline_reg_cout0;
 wire [15:0] sum0;
 wire carry0;
 
-adderGenerator adder0 (in_1[15:0], in_2[15:0], 1'b0, sum0, carry0);
-
 always @(posedge clock) begin
     if (reset) begin
         pipeline_reg_cout0 <= 0;
@@ -37,24 +42,31 @@ always @(posedge clock) begin
         pipeline_reg_in_1 <= in_1[31:16];
         pipeline_reg_in_2 <= in_2[31:16];
         pipeline_reg_cout0 <= carry0;
-    end
-    
+    end    
 end
+
+adderGenerator adder0 (in_1[15:0], in_2[15:0], 1'b0, sum0, carry0);
 // stage 1 compelte,,, 
+
+
 // stage 2 of adder - pipeline sum0 from adder0
 
 reg [15:0] pipeline_sum0;
 wire[15:0] sum1;
 wire carry1;
 
-adderGenerator adder1 (pipeline_reg_in_1, pipeline_reg_in_2, pipeline_reg_cout0, sum1, carry1);
 always @(posedge clock) begin
-
-    pipeline_sum0 <= sum0;    
+    if (reset) begin
+        pipeline_sum0 <= 0;
+        
+    end
+    else begin        
+        pipeline_sum0 <= sum0;    
+    end
 end
+adderGenerator adder1 (pipeline_reg_in_1, pipeline_reg_in_2, pipeline_reg_cout0, sum1, carry1);
 
 assign out_sum = {sum1, pipeline_sum0};
 assign out_carry = carry1;
-
     
 endmodule
