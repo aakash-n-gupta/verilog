@@ -6,7 +6,6 @@ reg reset;
 reg[31:0] in_1;
 reg[31:0] in_2;
 wire[32:0]out_sum;
-wire out_carry;
 
 adder2Stage uut (
     .clock(clock),
@@ -21,7 +20,7 @@ parameter PERIOD = 10;
 initial begin
     $dumpfile("db_tb_adder2Stage.vcd");
     $dumpvars(0, tb_adder2Stage);
-    $monitor(clock, reset, in_1, in_2, out_sum[31:0], out_sum[32]);
+    $monitor(clock, reset, in_1, in_2, out_sum[32:0]);
     clock = 1'b0;
     reset = 1'b0;
     in_1 = 32'b0;
@@ -49,8 +48,8 @@ initial begin
     in_2 = 32'd100;
     #10;
     // reset = 1;
-    #10;
-    reset = 0;
+    // #10;
+    // reset = 0;
     #10;    
     in_1 = 32'd0;
     in_2 = 32'd9273;
@@ -65,8 +64,8 @@ initial begin
     in_2 = 32'hffffffef;
     #80;
     // reset = 1;
-    #10;
-    reset = 0;
+    // #10;
+    // reset = 0;
     #10;    
     in_1 = 32'd0;
     in_2 = 32'd9273;
