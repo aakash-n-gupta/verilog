@@ -6,5 +6,5 @@ module adderGenerator #(parameter WIDTH = 16) (
     output out_carry 
 );
 
-    assign {out_carry, sum} = in_a + in_b;
+    assign {out_carry, sum} = in_a + in_b + in_carry;
 endmodule
