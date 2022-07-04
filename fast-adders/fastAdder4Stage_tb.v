@@ -31,7 +31,7 @@ end
 
 
 initial begin
-    #40;
+    #60;
     in_a = 32'd3827;
     in_b = 32'd9273;
     #50;
@@ -81,25 +81,25 @@ initial begin
     #50;
     in_a = 32'hfffffff1;
     in_b = 32'h0fffffef;
-    #40;
+    #60;
     in_a = 32'hfffffff1;
     in_b = 32'h0fffffef;
-    #40;
+    #60;
     in_a = 32'hefff0001;
     in_b = 32'h0fff0000;
-    #40;
+    #60;
     in_a = 32'hffff1000;
     in_b = 32'hfffff000;
-    #40;
+    #60;
     in_a = 32'hffff0000;
     in_b = 32'hffff0000;
-    #40;
+    #60;
     in_a = 32'hfffffff1;
     in_b = 32'hffffafef;
-    #40;
+    #60;
     in_a = 32'hffffeeee;
     in_b = 32'hffff1111;
-    #40;
+    #60;
     in_a = 32'hffff3841;
     in_b = 32'hffffb3ae;
     // reset = 1;

@@ -35,7 +35,7 @@ wire [8:0] sum2;
 
 
 // stage 4 
-reg [32:0] pipeline_sum3;  //final 32 bit result, doubles as output buffer - feeds to IO port
+reg [8:0] pipeline_sum3;  //final 32 bit result, doubles as output buffer - feeds to IO port
 wire [8:0] sum3;
 
 

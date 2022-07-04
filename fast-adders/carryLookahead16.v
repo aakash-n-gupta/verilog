@@ -63,21 +63,21 @@ module carryLookahead(
   
 endmodule
 
-// module CLA_16bit(
-//     input [15:0]in_a,
-//     input [15:0]in_b, 
-//     input in_carry,
-//     output [15:0]out_sum,
-//     output out_carry );
+module CLA_16bit(
+    input [15:0]in_a,
+    input [15:0]in_b, 
+    input in_carry,
+    output [15:0]out_sum,
+    output out_carry );
 
-//   wire [3:1] C;
+  wire [3:1] C;
   
-//   carryLookahead F0_3 (in_a[3:0] , in_b[3:0] , in_carry, C[1], out_sum[3:0]);
-//   carryLookahead F4_7 (in_a[7:4] , in_b[7:4] , C[1],  C[2],out_sum[7:4]);
-//   carryLookahead F8_11 (in_a[11:8] , in_b[11:8] , C[2], C[3],out_sum[11:8]);
-//   carryLookahead F12_15 (in_a[15:12] , in_b[15:12] , C[3] , out_carry,out_sum[15:12]);
+  carryLookahead F0_3 (in_a[3:0] , in_b[3:0] , in_carry, C[1], out_sum[3:0]);
+  carryLookahead F4_7 (in_a[7:4] , in_b[7:4] , C[1],  C[2],out_sum[7:4]);
+  carryLookahead F8_11 (in_a[11:8] , in_b[11:8] , C[2], C[3],out_sum[11:8]);
+  carryLookahead F12_15 (in_a[15:12] , in_b[15:12] , C[3] , out_carry,out_sum[15:12]);
   
-// endmodule
+endmodule
 
 module CLA_8bit(
     input [7:0]in_a,
