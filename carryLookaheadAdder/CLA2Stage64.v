@@ -10,12 +10,6 @@ module CLA2Stage64(
 
 parameter WIDTH = 64;
 
-/////////////////////
-// wire temp1;
-reg temp2;
-////////////////////
-
-
 // buffer registers for IO
 reg [WIDTH-1:0] buffer_in_a;
 reg [WIDTH-1:0] buffer_in_b;
@@ -56,30 +50,13 @@ end
 
 // stage 2
 wire [(WIDTH/2):0] sum1;
-
-// CLAGenerator #(.WIDTH(32)) cla1(
-//     pipeline_in_a,
-//     pipeline_in_b,
-//     sum0[WIDTH/2],
-//     sum1[WIDTH/2],
-//     sum1[(WIDTH/2 -1):0]
-// );
-
-// /////////////////////////
 CLAGenerator #(.WIDTH(32)) cla1(
     pipeline_in_a,
     pipeline_in_b,
-    temp2,
+    pipeline_sum0[WIDTH/2],
     sum1[WIDTH/2],
     sum1[(WIDTH/2 -1):0]
 );
-
-always @(posedge clock) begin
-    temp2 <= sum0[WIDTH/2];
-    
-end
-
-// ////////////////////////
 
 always @(posedge clock) begin
     if (reset) begin
