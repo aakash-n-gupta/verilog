@@ -1,13 +1,13 @@
 `include "CLAGenerator.v"
-module CLA4Stage32(
+module CLA4Stage64(
     input clock,
     input reset,
-    input [31:0] in_a,
-    input [31:0] in_b,
-    output [32:0] out_sum
+    input [63:0] in_a,
+    input [63:0] in_b,
+    output [64:0] out_sum
 );
 
-parameter WIDTH = 32;
+parameter WIDTH = 64;
 
 // IO buffers
 reg [WIDTH-1:0] buffer_in_a;
@@ -75,28 +75,28 @@ always @(posedge clock) begin
 end
 // adders for various stages
 // stage 0
-CLAGenerator #(.WIDTH(8)) adder0(
+CLAGenerator #(.WIDTH(16)) adder0(
     .in_a(buffer_in_a[(WIDTH/4-1):0]),
     .in_b(buffer_in_b[(WIDTH/4-1):0]), 
     .in_carry(1'b0),
     .out_carry(sum0[(WIDTH/4)]),
     .out_sum(sum0[(WIDTH/4-1):0]));
 // /stage 1
-CLAGenerator #(.WIDTH(8)) adder1(
+CLAGenerator #(.WIDTH(16)) adder1(
     .in_a(pipeline0_in_a[(WIDTH/2 - 1):(WIDTH/4)]),
     .in_b(pipeline0_in_b[(WIDTH/2 - 1):(WIDTH/4)]), 
     .in_carry(pipeline0_sum0[(WIDTH/4)]), 
     .out_carry(sum1[(WIDTH/4)]), 
     .out_sum(sum1[(WIDTH/4-1):0]));
 // stage 2
-CLAGenerator #(.WIDTH(8)) adder2(
+CLAGenerator #(.WIDTH(16)) adder2(
     .in_a(pipeline1_in_a[(3*WIDTH/4 - 1):(WIDTH/2)]),
     .in_b(pipeline1_in_b[(3*WIDTH/4 - 1):(WIDTH/2)]), 
     .in_carry(pipeline1_sum1[(WIDTH/2)]), 
     .out_carry(sum2[(WIDTH/4)]), 
     .out_sum(sum2[(WIDTH/4-1):0]));
 // stage 3
-CLAGenerator #(.WIDTH(8)) adder3(
+CLAGenerator #(.WIDTH(16)) adder3(
     .in_a(pipeline2_in_a[WIDTH-1:(3*WIDTH/4)]),
     .in_b(pipeline2_in_b[WIDTH-1:(3*WIDTH/4)]), 
     .in_carry(pipeline2_sum2[(3*WIDTH/4)]), 
