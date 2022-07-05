@@ -25,10 +25,7 @@ module CLA32 (
         end        
     end
 
-    // CLAGenerator #(.WIDTH(32)) adder0 (reg_in_a, reg_in_b, 1'b0, sum0[WIDTH], sum0[WIDTH-1:0]);
-
-    CLAGenerator #(.WIDTH(16)) adder0 (reg_in_a[(WIDTH/2-1):0], reg_in_b[(WIDTH/2-1):0], 1'b0, sum0[WIDTH/2], sum0[(WIDTH/2-1):0]);
-    CLAGenerator #(.WIDTH(16)) adder1 (reg_in_a[WIDTH-1:WIDTH/2], reg_in_b[WIDTH-1:WIDTH/2] ,sum0[WIDTH], sum0[WIDTH],sum0[(WIDTH/2-1):0]);
+    CLAGenerator #(.WIDTH(32)) adder0 (reg_in_a, reg_in_b, 1'b0, sum0[WIDTH], sum0[WIDTH-1:0]);
     
     always @(posedge clock) begin
         if (reset) begin

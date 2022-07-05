@@ -1,4 +1,3 @@
-
 module carryLookahead(
     input [3:0]in_a,
     input [3:0]in_b,

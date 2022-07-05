@@ -65,7 +65,7 @@ always @(posedge clock) begin
         buffer_out_sum <= {WIDTH{1'b0}};
     end 
     else begin
-        buffer_out_sum <= {sum1, pipeline_sum0};
+        buffer_out_sum <= {sum1, pipeline_sum0[(WIDTH/2 - 1):0]};
     end
 end
 
