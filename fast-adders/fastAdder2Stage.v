@@ -53,7 +53,7 @@ wire [(WIDTH/2):0] sum1;
 CLA_16bit cla1(
     pipeline_in_a,
     pipeline_in_b,
-    sum0[(WIDTH/2)],
+    pipeline_sum0[(WIDTH/2)],
     sum1[(WIDTH/2 - 1):0],
     sum1[(WIDTH/2)]
 );

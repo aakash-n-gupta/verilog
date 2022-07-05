@@ -74,9 +74,9 @@ always @(posedge clock) begin
 end
 
 CLA_8bit adder0(buffer_in_a[7:0], buffer_in_b[7:0], 1'b0, sum0[7:0], sum0[8]);
-CLA_8bit adder1(pipeline1_in_a[15:8], pipeline1_in_b[15:8],sum0[8], sum1[7:0], sum1[8]);
-CLA_8bit adder2(pipeline2_in_a[23:16], pipeline2_in_b[23:16],sum1[8], sum2[7:0], sum2[8]);
-CLA_8bit adder3(pipeline3_in_a[31:24], pipeline3_in_b[31:24],sum2[8], sum3[7:0], sum3[8]);
+CLA_8bit adder1(pipeline1_in_a[15:8], pipeline1_in_b[15:8], pipeline1_sum0[8], sum1[7:0], sum1[8]);
+CLA_8bit adder2(pipeline2_in_a[23:16], pipeline2_in_b[23:16], pipeline2_sum1[8], sum2[7:0], sum2[8]);
+CLA_8bit adder3(pipeline3_in_a[31:24], pipeline3_in_b[31:24], pipeline3_sum2[8], sum3[7:0], sum3[8]);
 
 assign out_sum = buffer_out_sum;
 

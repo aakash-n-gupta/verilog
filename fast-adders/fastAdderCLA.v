@@ -1,6 +1,4 @@
 `include "carryLookahead16.v"
-// `include "carry_lookahead_adder.v"
-
 module fastAdderCLA (
     input clock,
     input reset,
